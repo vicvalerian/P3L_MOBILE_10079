@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/menuProfilPelanggan"
+        android:title="Profil"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuPromo"
+        android:title="Promo"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuMobil"
+        android:title="Mobil"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuRiwayatPelanggan"
+        android:title="Riwayat"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuLogout"
+        android:title="Logout"
+        app:showAsAction="never" />
+</menu>
