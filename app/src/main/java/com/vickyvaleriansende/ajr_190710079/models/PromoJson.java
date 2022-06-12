@@ -16,12 +16,12 @@ public class PromoJson {
     private String keterangan_promo;
 
     @SerializedName("diskon_promo")
-    private String diskon_promo;
+    private int diskon_promo;
 
     @SerializedName("status_promo")
     private String status_promo;
 
-    public PromoJson(int id_promo, String kode_promo, String jenis_promo, String keterangan_promo, String diskon_promo, String status_promo) {
+    public PromoJson(int id_promo, String kode_promo, String jenis_promo, String keterangan_promo, int diskon_promo, String status_promo) {
         this.id_promo = id_promo;
         this.kode_promo = kode_promo;
         this.jenis_promo = jenis_promo;
@@ -62,11 +62,11 @@ public class PromoJson {
         this.keterangan_promo = keterangan_promo;
     }
 
-    public String getDiskon_promo() {
+    public int getDiskon_promo() {
         return diskon_promo;
     }
 
-    public void setDiskon_promo(String diskon_promo) {
+    public void setDiskon_promo(int diskon_promo) {
         this.diskon_promo = diskon_promo;
     }
 

@@ -20,6 +20,7 @@ import java.util.List;
 public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> implements Filterable{
     private List<PromoJson> promoList, filteredPromoList;
     private Context context;
+
     public PromoAdapter(List<PromoJson> promoList, Context context) {
         this.promoList = promoList;
         filteredPromoList = new ArrayList<>(promoList);
@@ -28,18 +29,20 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PromoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.rv_item_promo, parent, false);
-        return new ViewHolder(view);
+        return new PromoAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PromoJson promo = filteredPromoList.get(position);
+        holder.tvKodePromo.setText(promo.getKode_promo() + " - ");
+        holder.tvJumlahPromo.setText(String.valueOf(promo.getDiskon_promo()) + "%");
         holder.tvJenisPromo.setText(promo.getJenis_promo());
-        holder.tvKodePromo.setText(promo.getKode_promo());
-        holder.tvInfo.setText(promo.getDiskon_promo() + "% - " + promo.getStatus_promo());
+        holder.tvKeterangan.setText(promo.getKeterangan_promo());
+        holder.tvStatus.setText(promo.getStatus_promo());
     }
 
     @Override
@@ -82,13 +85,15 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvJenisPromo, tvKodePromo, tvInfo;
+        TextView tvJenisPromo, tvKodePromo, tvStatus, tvKeterangan, tvJumlahPromo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvJenisPromo = itemView.findViewById(R.id.tv_jenis_promo);
             tvKodePromo = itemView.findViewById(R.id.tv_kode_promo);
-            tvInfo = itemView.findViewById(R.id.tv_info);
+            tvJenisPromo = itemView.findViewById(R.id.tv_jenis_promo);
+            tvJumlahPromo = itemView.findViewById(R.id.tv_jml_promo);
+            tvStatus = itemView.findViewById(R.id.tv_status_promo);
+            tvKeterangan = itemView.findViewById(R.id.tv_keterangan_promo);
         }
     }
 }

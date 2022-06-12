@@ -50,7 +50,7 @@ public class MobilAdapter extends RecyclerView.Adapter<MobilAdapter.ViewHolder> 
         holder.tvFasilitasMobil.setText(mobil.getFasilitas_mobil());
         holder.tvHargaSewa.setText("Rp."+String.valueOf(mobil.getSewa_harian_mobil()));
         Glide.with(context)
-                .load("http://192.168.1.10:8000/storage/"+mobil.getFoto_mobil())
+                .load("http://192.168.1.9:8000/storage/"+mobil.getFoto_mobil())
                 .placeholder(R.drawable.logoajr)
                 .into(holder.imgMobilShow);
         holder.tvNomorPlat.setText(mobil.getPlat_mobil());

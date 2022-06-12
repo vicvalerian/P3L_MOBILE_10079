@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuLaporanManager"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Laporan"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuPromoManager"
+        android:icon="@drawable/ic_baseline_file_copy_24"
+        android:title="Promo"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuLogout"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="Logout"
+        app:showAsAction="never" />
+</menu>

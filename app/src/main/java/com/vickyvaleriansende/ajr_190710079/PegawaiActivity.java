@@ -1,5 +1,6 @@
 package com.vickyvaleriansende.ajr_190710079;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
@@ -11,6 +12,9 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -69,7 +73,7 @@ public class PegawaiActivity extends AppCompatActivity {
 
     private ActivityPegawaiBinding binding;
     PegawaiPreferences pegawaiPreferences;
-    private Button btnPenyewaanMobil, btnPendapatanTransaksi, btnTopDriver, btnTopPelanggan, btnPerformaDriver, btnLogout;
+    private Button btnPenyewaanMobil, btnPendapatanTransaksi, btnTopDriver, btnTopPelanggan, btnPerformaDriver;
     private EditText edtFrom, edtTo;
     private RequestQueue queue;
 
@@ -86,7 +90,6 @@ public class PegawaiActivity extends AppCompatActivity {
         edtFrom = findViewById(R.id.edtFrom);
         edtTo = findViewById(R.id.edtTo);
 
-        btnLogout = findViewById(R.id.btnLogOut);
         btnPenyewaanMobil = findViewById(R.id.btnLaporanPenyewaanMobil);
         btnPendapatanTransaksi = findViewById(R.id.btnLaporanPendapatanTransaksi);
         btnTopDriver = findViewById(R.id.btnLaporanTopDriver);
@@ -179,21 +182,6 @@ public class PegawaiActivity extends AppCompatActivity {
                 getLaporanPerformaDriver(from, to);
             }
         });
-
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                moveLogin();
-            }
-        });
-    }
-
-    private void moveLogin() {
-        pegawaiPreferences.Logout();
-
-        Intent move = new Intent(this, LoginActivity.class);
-        startActivity(move);
-        finish();
     }
 
     private void getLaporanPenyewaanMobil(String from, String to) {
@@ -1021,5 +1009,32 @@ public class PegawaiActivity extends AppCompatActivity {
 
             startActivity(pdfIntent);
 //        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pegawai, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuLaporanManager:
+                return true;
+            case R.id.menuPromoManager:
+                Intent moveShowPromo = new Intent(PegawaiActivity.this, PromoPegawaiActivity.class );
+                startActivity(moveShowPromo);
+                return true;
+            case R.id.menuLogout:
+                pegawaiPreferences.Logout();
+
+                Intent move = new Intent(this, LoginActivity.class);
+                startActivity(move);
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
