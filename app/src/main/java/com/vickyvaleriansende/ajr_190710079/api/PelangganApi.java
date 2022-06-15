@@ -1,7 +1,7 @@
 package com.vickyvaleriansende.ajr_190710079.api;
 
 public class PelangganApi {
-    public static final String BASE_URL = "http://192.168.1.9:8000/api/";
+    public static final String BASE_URL = "https://190710079.atmajogjarental.xyz/api/api/";
 
     public static final String GET_ALL_URL = BASE_URL + "pelanggan";
     public static final String GET_BY_ID_URL = BASE_URL + "pelanggan/";

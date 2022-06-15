@@ -1,8 +1,8 @@
 package com.vickyvaleriansende.ajr_190710079.api;
 
 public class DriverApi {
-    public static final String BASE_URL = "http://192.168.1.9:8000/api/";
-    public static final String BASE_URL_GAMBAR = "http://192.168.1.9:8000/";
+    public static final String BASE_URL = "https://190710079.atmajogjarental.xyz/api/api/";
+    public static final String BASE_URL_GAMBAR = "https://190710079.atmajogjarental.xyz/api/public/";
 
     public static final String GET_ALL_URL = BASE_URL + "driver";
     public static final String GET_BY_ID_URL = BASE_URL + "driver/";
